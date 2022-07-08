@@ -6,8 +6,36 @@
 
 void showMainWindow(void)
 {
-	char mystring[] = "hello";
-	addstr(mystring);
+	char mainStr1[] = "-----------------\n| ";
+	char mainStr2[] = " CombinaCount ";
+	char mainStr3[] = "|\n|";
+	char mainStr4[] = " version: 1.0.0 ";
+	char mainStr5[] = "|\n----------------\n\n";
+	char *ch1, *ch2;
+	ch1 = mainStr2;
+	ch2 = mainStr4;
+	addstr(mainStr1);
+	move(1,14);
+	addstr(mainStr3);
+	move(2,15);
+	addstr(mainStr5);
+	move(1,1);
+	while(*ch1)
+	{
+		addch(*ch1);
+		ch1++;
+		refresh();
+		napms(100);
+	}
+	move(2,1);
+	while(*ch2)
+	{
+		addch(*ch2);
+		ch2++;
+		refresh();
+		napms(100);
+	}
+	move(5,0);
 	refresh();
 	getch();// this could also be in the main function instead.
 	
@@ -35,7 +63,7 @@ int multiply(int num, int largeNum[],int arrLength)
 
 int * factorial(int n)
 {
-	int largeNum[500];
+	static int largeNum[500];
 	largeNum[0] = 1;
 	int arrLength = 1;
 	int i;
