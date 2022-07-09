@@ -13,7 +13,7 @@ void showMainWindow(void)
 	char mainStr5[] = "|\n----------------\n\n";
 	char *ch1, *ch2;
 	char inputCommand[5];
-	char mainCommands[7][5] = { {"fact"},{"perm"},{"ster"},{"part"},{"choo"},{"mcho"},{"quit"} };//quit used version.
+	char mainCommands[7][5] = { {"fact"},{"perm"},{"ster"},{"part"},{"comb"},{"mcom"},{"quit"} };//quit used next version.
 	int mainInt1;
 	int mainInt2;
 	ch1 = mainStr2;
@@ -54,7 +54,6 @@ void showMainWindow(void)
 		int *parrLength;
 		parrLength = &arrLength;
 		int * pLargeNum;
-		//char numChar;
 		pLargeNum = factorial(mainInt1,parrLength);
 		printw(" ans = ");
 		for(int i = arrLength - 1; i >= 0;i--)
@@ -66,6 +65,18 @@ void showMainWindow(void)
 	else if(strcmp(inputCommand,mainCommands[1]) == 0)
 	{
 		printw("permutation\n");
+		int arrLength;
+		int *parrLength;
+		parrLength = &arrLength;
+		int * pLargeNum;
+		pLargeNum = permutation(mainInt1,mainInt2,parrLength);
+		printw(" ans = ");
+		for(int i = arrLength - 1; i >= 0;i--)
+		{
+			printw("%d",*(pLargeNum + i));	
+		}
+		printw("\n>> ");
+
 	}
 	
 	//printw("\ntest rn %s%s %d %d",mainCommands[0],inputCommand,mainInt1,mainInt2);//test rm
@@ -106,4 +117,19 @@ int * factorial(int n,int *arrLen)
 	}
 	*arrLen = arrLength; 
 	return largeNum;// Number stored in reverse order.
+}
+
+
+int * permutation(int n, int r, int *arrLen)
+{
+	static int largeNum[500];
+	largeNum[0] = 1;
+	int arrLength = 1;
+	int i;
+	for(i = n - r + 1; i <= n;i++)
+	{
+		arrLength = multiply(i,largeNum,arrLength);
+	}
+	*arrLen = arrLength; 
+	return largeNum;
 }
