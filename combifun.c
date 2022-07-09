@@ -12,6 +12,10 @@ void showMainWindow(void)
 	char mainStr4[] = " version: 1.0.0 ";
 	char mainStr5[] = "|\n----------------\n\n";
 	char *ch1, *ch2;
+	char inputCommand[5];
+	char mainCommands[7][5] = { {"fact"},{"perm"},{"ster"},{"part"},{"choo"},{"mcho"},{"quit"} };//quit used version.
+	int mainInt1;
+	int mainInt2;
 	ch1 = mainStr2;
 	ch2 = mainStr4;
 	addstr(mainStr1);
@@ -36,6 +40,35 @@ void showMainWindow(void)
 		napms(100);
 	}
 	move(5,0);
+	attron(A_BLINK);
+	addstr(">> ");
+	attrset(A_NORMAL);
+	scanw("%s %d %d",inputCommand,&mainInt1,&mainInt2);
+	move(7,2);
+	addstr(">>");
+	move(7,5);
+	if(strcmp(inputCommand,mainCommands[0]) == 0)
+	{
+		printw("factorial\n");
+		int arrLength;
+		int *parrLength;
+		parrLength = &arrLength;
+		int * pLargeNum;
+		//char numChar;
+		pLargeNum = factorial(mainInt1,parrLength);
+		printw(" ans = ");
+		for(int i = arrLength - 1; i >= 0;i--)
+		{
+			printw("%d",*(pLargeNum + i));	
+		}
+		printw("\n>> ");	
+	}
+	else if(strcmp(inputCommand,mainCommands[1]) == 0)
+	{
+		printw("permutation\n");
+	}
+	
+	//printw("\ntest rn %s%s %d %d",mainCommands[0],inputCommand,mainInt1,mainInt2);//test rm
 	refresh();
 	getch();// this could also be in the main function instead.
 	
@@ -61,7 +94,7 @@ int multiply(int num, int largeNum[],int arrLength)
 	return arrLength;
 }
 
-int * factorial(int n)
+int * factorial(int n,int *arrLen)
 {
 	static int largeNum[500];
 	largeNum[0] = 1;
@@ -71,5 +104,6 @@ int * factorial(int n)
 	{
 		arrLength = multiply(i,largeNum,arrLength);
 	}
+	*arrLen = arrLength; 
 	return largeNum;// Number stored in reverse order.
 }
