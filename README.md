@@ -3,26 +3,43 @@ Is a commandline program for finding numerical solutions to combinatorial proble
 
 Table of Contents
 -----------------
+- [Dependencies](#Dependencies)
+- [Installation](#Installation)
+- [Documentation](#Documentation)
 
-
-## Installation
-Dependencies: Cmake, ncurses, git, and gcc.
+## Dependencies
+Cmake for the makefile
+ ```bash
+  sudo apt install cmake
+  ```
+Ncurses to link to the library to run CombinaCount
+ ```bash
+  sudo apt install libncurses5-dev libncursesw5-dev
+  ```
+Git to cline this repo
+ ```bash
+  sudo apt install git
+  ```
+GCC(GNU C Compiler) to compile and run
  ```bash
   sudo apt install cmake libncurses5-dev libncursesw5-dev git build-essential
   ```
-Source code:
+## Installation
+After installing the dependencies clone this repo using the running the following command in the terminal.
  ```bash
   git clone https://github.com/benLBrook/CombinaCount.git
   ```
-Build with gcc:
+Then change directory to CombinaCount and 
+build with gcc:
 ```bash
+  cd ./CombinaCount
   make comb
   ```
-Run:
+To run the code use
 ```bash
   make run
   ```
-clean:
+You can remove the executable by running make clean:
 ```bash
   make clean
   ```
