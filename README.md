@@ -16,7 +16,7 @@ Ncurses to link to the library to run CombinaCount
  ```bash
   sudo apt install libncurses5-dev libncursesw5-dev
   ```
-Git to cline this repo
+Git to clone this repo
  ```bash
   sudo apt install git
   ```
