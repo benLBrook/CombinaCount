@@ -1,4 +1,4 @@
-# CombinaCount [![MIT License](https://github.com/benLBrook/CombinaCount/blob/master/LICENSE)
+# CombinaCount [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 Is a commandline program for finding numerical solutions to combinatorial problems. Many combinatorial functions are supported see [Documentation](#Documentation).
 
 Table of Contents
@@ -46,4 +46,5 @@ You can remove the executable by running make clean:
 ## Documentation
 
 [Documentation](https://linktodocumentation)
+
 
