@@ -1,4 +1,4 @@
-# CombinaCount [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+# CombinaCount [![MIT License](https://github.com/benLBrook/CombinaCount/blob/master/LICENSE)
 Is a commandline program for finding numerical solutions to combinatorial problems. Many combinatorial functions are supported see [Documentation](#Documentation).
 
 Table of Contents
