@@ -183,3 +183,21 @@ int * permutation(int n, int r, int *arrLen)
 	*arrLen = arrLength; 
 	return largeNum;
 }
+
+void swap(int * x, int * y)
+{
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+void reverseArray(int * pLargeNum,int arrLen)
+{
+	int i;
+	for ( i = 0; i < arrLen / 2; i++)
+	{
+		swap((pLargeNum + i),(pLargeNum + arrLen - 1 - i));
+	}
+	
+}
+
