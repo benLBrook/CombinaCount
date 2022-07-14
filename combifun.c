@@ -105,6 +105,56 @@ int multiply(int num, int largeNum[],int arrLength)
 	return arrLength;
 }
 
+int divide(int num, int largeNum[],int arrLength)
+{
+    int currentIndex = 0;
+	int finalLength =  arrLength;
+    int tempIndex = 0;
+    int tempVal = largeNum[currentIndex];
+    int carry;
+    _Bool zeroTrack = 0;
+    int i;
+    for(i = 0; i <= arrLength;i++)
+    {
+        while(tempVal < num)
+        {
+            if(zeroTrack == 0)
+            {
+                largeNum[currentIndex] = 0;
+                currentIndex++;
+				finalLength--;
+            }
+            if (tempVal == 0)
+            {
+                tempVal = tempVal*10 + largeNum[tempIndex + 1];
+                tempIndex++;
+                largeNum[currentIndex] = 0;
+                currentIndex++;
+                continue;
+
+            }
+            
+            tempVal = tempVal*10 + largeNum[currentIndex];
+            tempIndex++;
+        }
+        zeroTrack = 1;// array now comsists of significant figures.
+        carry = tempVal / num;
+        largeNum[currentIndex] = carry;
+        currentIndex++;
+        tempIndex++;
+        tempVal = tempVal - (carry * num);
+        if (currentIndex > arrLength - 1)
+        {
+            break;
+        }
+        
+       
+
+    }
+    return finalLength;
+    
+}
+
 int * factorial(int n,int *arrLen)
 {
 	static int largeNum[500];
