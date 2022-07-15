@@ -82,24 +82,17 @@ void showMainWindow(void)
 	else if(strcmp(inputCommand,mainCommands[4]) == 0)
 	{
 		printw("combination\n");
-		/*
-		int arrLength;
-		int *parrLength;
-		parrLength = &arrLength;
-		int * pLargeNum;
-		pLargeNum = combination(mainInt1,mainInt2,parrLength);*/
 		int ans = combination(mainInt1,mainInt2);
 		printw(" ans = %d",ans);
-
-		/*
-		for(int i = arrLength - 1; i >= 0;i--)
-		{
-			printw("%d",*(pLargeNum + i));	
-		} */
 		printw("\n>> ");
-
 	}
-
+	
+	else if(strcmp(inputCommand,mainCommands[5]) == 0)
+	{
+		printw("multicombination\n");
+		printw(" ans = ");
+		printw("\n>> ");
+	}
 	
 	
 	//printw("\ntest rn %s%s %d %d",mainCommands[0],inputCommand,mainInt1,mainInt2);//test rm
@@ -235,18 +228,7 @@ void reverseArray(int * pLargeNum,int arrLen)
 	
 }
 
-/*int * combination(int n, int r, int *arrLen)
-{
-	int * pLargeNum = NULL;
-	printw("works here");
-	pLargeNum = permutation(n,r,arrLen);
 
-	reverseArray(pLargeNum,*arrLen);
-	*arrLen = divide(smallFactorial(r),pLargeNum,*arrLen); 
-	//make sure to dereference and update arrlen
-	// *arrLen = the length!
-	return pLargeNum;
-}*/
 int findMin(int x, int y)
 {
 	if(x > y)
