@@ -78,6 +78,29 @@ void showMainWindow(void)
 		printw("\n>> ");
 
 	}
+
+	else if(strcmp(inputCommand,mainCommands[4]) == 0)
+	{
+		printw("combination\n");
+		/*
+		int arrLength;
+		int *parrLength;
+		parrLength = &arrLength;
+		int * pLargeNum;
+		pLargeNum = combination(mainInt1,mainInt2,parrLength);*/
+		int ans = combination(mainInt1,mainInt2);
+		printw(" ans = %d",ans);
+
+		/*
+		for(int i = arrLength - 1; i >= 0;i--)
+		{
+			printw("%d",*(pLargeNum + i));	
+		} */
+		printw("\n>> ");
+
+	}
+
+	
 	
 	//printw("\ntest rn %s%s %d %d",mainCommands[0],inputCommand,mainInt1,mainInt2);//test rm
 	refresh();
@@ -169,6 +192,17 @@ int * factorial(int n,int *arrLen)
 	return largeNum;// Number stored in reverse order.
 }
 
+int smallFactorial(int n)
+{
+	if(n < 2)
+	{
+		return 1;
+	}
+	else
+	{
+		return n*smallFactorial(n - 1);
+	}
+}
 
 int * permutation(int n, int r, int *arrLen)
 {
@@ -201,3 +235,50 @@ void reverseArray(int * pLargeNum,int arrLen)
 	
 }
 
+/*int * combination(int n, int r, int *arrLen)
+{
+	int * pLargeNum = NULL;
+	printw("works here");
+	pLargeNum = permutation(n,r,arrLen);
+
+	reverseArray(pLargeNum,*arrLen);
+	*arrLen = divide(smallFactorial(r),pLargeNum,*arrLen); 
+	//make sure to dereference and update arrlen
+	// *arrLen = the length!
+	return pLargeNum;
+}*/
+int findMin(int x, int y)
+{
+	if(x > y)
+	{
+		return y;
+	}
+	return x;
+}
+
+int combination(int n, int r)
+{
+	int numArray[(n + 1)][(r + 1)];
+	int i;
+	int j;
+	if( r > n)
+	{
+		return 0;
+	}
+	for(i = 0; i <= n;i++)
+	{
+		for(j = 0;j <= r;j++)
+		{
+			if( j == 0 || i == j)
+			{
+				numArray[i][j] = 1;
+			}
+			else
+			{
+				numArray[i][j] = numArray[i - 1][j - 1] + numArray[i - 1][j];
+			}
+			
+		}
+	}
+	return numArray[n][r];
+}
